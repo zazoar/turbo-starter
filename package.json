@@ -1,0 +1,30 @@
+{
+  "name": "zazoar-turbo-starter",
+  "scripts": {
+    "postinstall": "is-ci || is-docker || lefthook install",
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "test": "turbo run test",
+    "test:cov": "turbo run test:cov",
+    "test:watch": "turbo run test:watch",
+    "check": "biome check --write"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.4",
+    "is-ci": "4.1.0",
+    "is-docker": "4.0.0",
+    "lefthook": "2.0.2",
+    "turbo": "^2.6.0",
+    "typescript": "5.9.3",
+    "vitest": "4.0.8"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "npm@11.6.1",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "devtools/*"
+  ]
+}

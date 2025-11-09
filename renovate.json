@@ -1,0 +1,42 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchPackageNames": [
+        "typescript",
+        "@biomejs/biome",
+        "lefthook",
+        "turbo",
+        "vitest"
+      ],
+      "groupName": "shared dev dependencies",
+      "groupSlug": "shared-dev-deps"
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "groupName": "all patch updates",
+      "groupSlug": "all-patch"
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "groupName": "all minor updates",
+      "groupSlug": "all-minor"
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "groupName": "all major updates",
+      "groupSlug": "all-major"
+    },
+    {
+      "matchFile": "**/package-lock.json",
+      "matchPackagePatterns": ["*"],
+      "excludePackagePatterns": ["^@zazoar/"],
+      "enabled": false
+    }
+  ],
+  "workspaceInternalSources": true,
+  "ignorePaths": ["**/node_modules/**", "dist/**", "coverage/**"],
+  "schedule": ["at any time"]
+}

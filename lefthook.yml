@@ -1,0 +1,13 @@
+# EXAMPLE USAGE:
+#
+#   Refer for explanation to following link:
+#   https://lefthook.dev/configuration/
+#
+
+pre-push:
+  jobs:
+    - run: npm run test -- --filter="...[HEAD^]"
+
+pre-commit:
+  jobs:
+    - run: npm run check -- {staged_files}
